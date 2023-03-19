@@ -7,6 +7,7 @@ class Car:
         self.current_speed = 0
         self.travelled_distance = 0
 
+
     def acceleration(self, speed_change):
         new_speed = self.current_speed + speed_change
         if new_speed >= self.maximum_speed:
@@ -18,6 +19,7 @@ class Car:
 
     def drive(self,hours):
         self.travelled_distance += self.current_speed * hours
+
 
 cars_list=[]
 
