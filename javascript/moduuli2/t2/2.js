@@ -1,22 +1,21 @@
-/*Write a program that asks the user for the number of participants.
- After this, the program asks for the names of all participants.
-  Finally, the program prints the names of the participants
-  on the web page in an ordered list (<ol>) in alphabetical order. (2p)*/
+'use strict';
 
-let names, participants;
 const name_list = [];
-const target = document.querySelector('#target');
-participants = parseInt(prompt('how many r gonna participate? '));
-do {
-  names = prompt('Enter the names! ');
-  name_list.push(names);
+const participants = parseInt(prompt('How many people are participating?'));
 
-} while (name_list.length < participants);
-name_list.sort();
-for (let i = 0; i < name_list.length; i++) {
-
-  target.innerHTML = `<ol>${name_list}</ol>`;
-  console.log(name_list[i])
-
+for (let i = 0; i < participants; i++) {
+  const name = prompt(`Enter name ${i+1}:`);
+  name_list.push(name);
 }
+
+name_list.sort();
+
+const list = document.getElementById("name_list");
+
+for (let i = 0; i < name_list.length; i++) {
+  const li = document.createElement('li');
+  li.innerText = name_list[i];
+  list.appendChild(li);
+}
+
 
